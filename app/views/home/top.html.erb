@@ -1,0 +1,31 @@
+<div class="containar">
+	<div class="row"><!--1つめ-->
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<!--ログインしていない状態のtop画面-->
+			<h1>welcome to<br>
+			<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Bookers !!</h1>
+			<h4>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Bookers,</h4>
+			<p>
+			 you can share and exchange your opinions , inpressions , and<br>
+			 emotions about varioius books!
+			</p>
+		</div>
+		<div class="col-lg-4"></div>
+	</div><!--1つめのrowの閉じタグ-->
+
+	<div class="row"><!--2つめ-->
+		<div class="col-lg-4  text"></div>
+		<div class="col-lg-4  text" style="background-color: #5bc0de;">
+			 <%=link_to "log_in" ,  new_user_session_path %>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4  text" style="background-color: #5cb85c;">
+			 <%=link_to "sign_up" , new_user_registration_path %>
+		</div>
+		<div class="col-lg-4"></div>
+ 	</div><!--２つ目のrowの閉じタグ-->
+</div><!--contaniarの閉じタグ-->

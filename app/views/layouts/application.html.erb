@@ -1,0 +1,103 @@
+<!--このページに記載したものは全てのページに反映される-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<!--ヘッダーとフッダーをここに作成する-->
+<header class="header-nav">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-4">
+        <span class="title_text">Bookers</span>
+      </div>
+
+
+        <% if user_signed_in? %><!--ログインしていたらここが表示される-->
+
+         <div class="col-xs-2">
+    　　　 <%= link_to user_path(current_user.id) do %><!--Home UsersのShowページへ飛ぶ？-->
+            <p class="header_aitem "><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</p>
+          <% end %>
+          </div>
+
+         <div class="col-xs-2">
+          <%= link_to users_path do %><!--User Usersのindexページへ飛ぶ-->
+          <p class="header_aitem"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Users</p>
+          <% end %>
+          </div>
+
+         <div class="col-xs-2">
+          <%= link_to books_path do %><!--Book Booksのindexページへ飛ぶ-->
+          <p class="header_aitem"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Books</p>
+          <% end %>
+        </div>
+
+        <div class="col-xs-2">
+          <p class="header_aitem"><%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+          Logout</p>
+          <% end %>
+        </div>
+
+    　　<!--ログインしていなかったらこっち↓が表示される-->
+        <% else %>
+
+
+          <div class="col-xs-2">
+    　　　 <%= link_to root_path do %><!--Home UsersのShowページへ飛ぶ？-->
+            <p class="header_aitem"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</p>
+          <% end %>
+         </div>
+
+          <div class="col-xs-2">
+    　　　 <%= link_to about_path do %><!--Home UsersのShowページへ飛ぶ？-->
+            <p class="header_aitem"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>About</p>
+          <% end %>
+         </div>
+
+         <div class="col-xs-2">
+          <%= link_to  new_user_registration_path do %><!--Home UsersのShowページへ飛ぶ？-->
+            <p class="header_aitem"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Sign up</p>
+          <% end %>
+        </div>
+
+        <div class="col-xs-2">
+          <%= link_to new_user_session_path do %><!--Home UsersのShowページへ飛ぶ？-->
+            <p class="header_aitem"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Login</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+
+<%=   flash[:notice]  %>
+
+ <%= yield %>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+      </div>
+    </div>
+</footer>
+
+
+
+  </body>
+</html>
